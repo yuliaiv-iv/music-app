@@ -1,0 +1,17 @@
+.song {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 20%;
+    border-radius: 50%;
+  }
+  h2 {
+    padding: 45px 15px 15px;
+  }
+  h3 {
+    font-size: 18px;
+  }
+}
