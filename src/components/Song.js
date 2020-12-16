@@ -3,6 +3,7 @@ import React from 'react';
 const Song = ({ currentSong }) => {
 
   const { name, artist, cover } = currentSong;
+
   return (
     <div className='song'>
       <img src={cover} alt={name} />
