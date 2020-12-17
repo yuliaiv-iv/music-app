@@ -7,10 +7,19 @@ const Library = ({
   audioRef,
   isPlaying,
   setSongs,
-  libraryOpen
+  libraryOpen,
+  closeOverlay
 }) => {
+
+  // function handleOverlay(event) {
+  //   if (event.currentTarget === event.target) {
+  //     console.log(event.currentTarget)
+  //     console.log(event.target)
+  //     setLibraryOpen(true);
+  //   }
+  // }
   return (
-    <div className={`library ${libraryOpen ? "library-active" : " "}`}>
+    <div onClick={closeOverlay} className={`library ${libraryOpen ? "library-active" : " "}`}>
       <h2>Library</h2>
       <div className='library__list'>
         {songs.map(song => <LibraryItem

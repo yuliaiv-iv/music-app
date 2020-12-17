@@ -1,13 +1,19 @@
 import React from 'react';
 
-const LibraryItem = ({ song, songs, setCurrentSong, audioRef, isPlaying, setSongs }) => {
+const LibraryItem = ({
+  song,
+  songs,
+  setCurrentSong,
+  audioRef,
+  isPlaying,
+  setSongs
+}) => {
 
   const { name, artist, cover, active, id } = song;
 
   const handleSelectedSong = async () => {
     const selectedSong = songs.filter((s) => s.id === id);
     await setCurrentSong({ ...selectedSong[0] });
-    console.log(selectedSong)
 
     const newSong = songs.map((song) => {
       if (song.id === id) {

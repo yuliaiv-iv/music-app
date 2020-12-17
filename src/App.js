@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Library from './components/Library';
 import Nav from './components/Nav';
 import Player from './components/Player';
@@ -14,17 +14,22 @@ function App() {
   const audioRef = useRef(null);
   const [songInfo, setSongInfo] = useState({
     currentTime: 0,
-    duration: 0
+    duration: 0,
+    animation: 0
   });
   const [libraryOpen, setLibraryOpen] = useState(false);
 
   const timeChangeHandler = (e) => {
     const current = e.target.currentTime;
     const duration = e.target.duration;
+    const roundedCurrent = Math.round(current);
+    const roundedDuration = Math.round(duration);
+    const percentage = Math.round((roundedCurrent / roundedDuration) * 100);
     setSongInfo({
       ...songInfo,
       currentTime: current,
-      duration: duration
+      duration: duration,
+      animation: percentage
     });
   };
 
@@ -34,8 +39,21 @@ function App() {
     if (isPlaying) audioRef.current.play();
   }
 
+//   const handleOverlay = (e) => {
+//     if (e.target !== e.currentTarget) {
+//       console.log(e.target)
+//       console.log(e.currentTarget)
+//     }
+//     setLibraryOpen(true);
+//   }
+
+//   useEffect(() => {
+//     document.addEventListener('mousedown', handleOverlay);
+//     return () => document.removeEventListener('mousedown', handleOverlay);
+// }, [libraryOpen]);
+
   return (
-    <div>
+    <div className={`App ${libraryOpen ? 'active-library' : ''}`}>
       <Nav
         libraryOpen={libraryOpen}
         setLibraryOpen={setLibraryOpen}
@@ -59,6 +77,9 @@ function App() {
         setCurrentSong={setCurrentSong}
         setSongs={setSongs}
         libraryOpen={libraryOpen}
+        // onClick={handleOverlay}
+      // setLibraryOpen={setLibraryOpen}
+      // closeOverlay={handleOverlay}
       />
       <audio
         onTimeUpdate={timeChangeHandler}

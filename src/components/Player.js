@@ -75,17 +75,31 @@ const Player = (props) => {
     if (isPlaying) audioRef.current.play();
   }
 
+  const trackAnimation = {
+    transform: `translateX(${songInfo.animation}%)`
+  }
+
+  const trackColor = {
+    background: `linear-gradient(to right, ${currentSong.color[0]},${currentSong.color[1]})`
+  }
+
   return (
     <div className='player'>
       <div className='player__control'>
         <p>{updateTimer(songInfo.currentTime)}</p>
-        <input
-          type='range'
-          min={0}
-          max={songInfo.duration || 0}
-          value={songInfo.currentTime}
-          onChange={moveHandler}
-        />
+        <div 
+        className='player__track'
+        style={trackColor}
+        >
+          <input
+            type='range'
+            min={0}
+            max={songInfo.duration || 0}
+            value={songInfo.currentTime}
+            onChange={moveHandler}
+          />
+          <div className='player__animation' style={trackAnimation}></div>
+        </div>
         <p>{songInfo.duration ? updateTimer(songInfo.duration) : '0:00'}</p>
       </div>
       <div className='player__handler'>
