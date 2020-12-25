@@ -1,5 +1,5 @@
 # Music App
-Проект **Mucis Player** можно посмотреть по ссылке https://yuliaiv-iv.github.io/mesto
+Проект **Mucis Player** можно посмотреть по ссылке
 
 ### Описание
 
