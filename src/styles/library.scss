@@ -1,0 +1,65 @@
+.library {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 320px;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: 2px 2px 50px rgb(136, 136, 136);
+  overflow: scroll;
+  transform: translateX(-100%);
+  transition: all 0.5s ease;
+  opacity: 0;
+  h2 {
+    padding: 30px;
+  }
+}
+
+.library-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 30px 15px 30px;
+  cursor: pointer;
+  img {
+    width: 30%;
+  }
+  &:hover {
+    background-color: rgb(235, 239, 255);
+  }
+}
+
+.library-item__des {
+  display: flex;
+  flex-direction: column;
+  padding-left: 15px;
+  h3 {
+    font-size: 1rem;
+  }
+  h4 {
+    font-size: 0.7rem;
+  }
+}
+
+*::-webkit-scrollbar {
+  width: 5px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(155, 155, 155, 0.7);
+  border-radius: 20px;
+  border: transparent;
+}
+
+.library-item__selected {
+  background-color: rgb(184, 196, 255);
+  &:hover {
+    background-color: rgb(184, 196, 255);
+  }
+}
+
+.library-active {
+  transform: translateX(0%);
+  opacity: 1;
+}
