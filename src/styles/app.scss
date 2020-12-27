@@ -11,9 +11,10 @@ h3 {
 
 .App {
   transition: all 0.5s ease;
+  height: 100vh;
 }
 .active-library {
-  margin-left: 30%;
+  margin-left: 25%;
 }
 
 body {
@@ -23,6 +24,18 @@ body {
 h3,h4 {
   font-weight: 400;
 }
+@media screen and (max-width: 900px) {
+  .active-library {
+    margin-left: 35%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .blur {
+    filter: blur(3px);
+  }
+}
+
 @import './player.scss';
 @import './song.scss';
 @import './library.scss';

@@ -1,12 +1,15 @@
 import React from 'react';
 
-const Song = ({ currentSong }) => {
+const Song = ({ currentSong, isPlaying }) => {
 
   const { name, artist, cover } = currentSong;
 
   return (
     <div className='song'>
-      <img src={cover} alt={name} />
+      <img className={isPlaying ? 'song_animation' : ''}
+        src={cover}
+        alt={name}
+      />
       <h2>{name}</h2>
       <h3>{artist}</h3>
     </div>

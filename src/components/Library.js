@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import LibraryItem from './LibraryItem';
 
 const Library = ({
@@ -8,19 +10,23 @@ const Library = ({
   isPlaying,
   setSongs,
   libraryOpen,
-  closeOverlay
+  setLibraryOpen
 }) => {
 
-  // function handleOverlay(event) {
-  //   if (event.currentTarget === event.target) {
-  //     console.log(event.currentTarget)
-  //     console.log(event.target)
-  //     setLibraryOpen(true);
-  //   }
-  // }
+  const handleCloseBtn = () => {
+    setLibraryOpen(!libraryOpen);
+  }
+
   return (
-    <div onClick={closeOverlay} className={`library ${libraryOpen ? "library-active" : " "}`}>
-      <h2>Library</h2>
+    <div className={`library ${libraryOpen ? "library-active" : " "}`}>
+      <div className='library-container'>
+        <h2>Library</h2>
+        <FontAwesomeIcon
+          icon={faTimes}
+          onClick={handleCloseBtn}
+          className='library-button'
+        />
+      </div>
       <div className='library__list'>
         {songs.map(song => <LibraryItem
           setCurrentSong={setCurrentSong}

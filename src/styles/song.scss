@@ -5,21 +5,43 @@
   justify-content: center;
   align-items: center;
   img {
-    width: 20%;
+    max-width: 300px;
+    width: 100%;
     border-radius: 50%;
   }
   h2 {
-    padding: 45px 15px 15px;
+    padding: 25px 15px 15px;
   }
   h3 {
     font-size: 18px;
   }
 }
 
-@media screen and (max-width: 1024px) {
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.song_animation {
+  animation: rotate 20s linear forwards infinite;
+}
+
+@media screen and (max-width: 700px) {
   .song {
     img {
-      width: 40%;
+      max-width: 250px;
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .song {
+    img {
+      max-width: 200px;
     }
   }
 }

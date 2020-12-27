@@ -39,37 +39,41 @@ function App() {
     if (isPlaying) audioRef.current.play();
   }
 
-//   const handleOverlay = (e) => {
-//     if (e.target !== e.currentTarget) {
-//       console.log(e.target)
-//       console.log(e.currentTarget)
-//     }
-//     setLibraryOpen(true);
-//   }
+  function handleEsc(event) {
+    if (event.key !== 'Escape') {
+      return
+    }
+    setLibraryOpen(false)
+  }
 
-//   useEffect(() => {
-//     document.addEventListener('mousedown', handleOverlay);
-//     return () => document.removeEventListener('mousedown', handleOverlay);
-// }, [libraryOpen]);
+  useEffect(() => {
+    document.addEventListener('keydown', handleEsc);
+    return () => document.removeEventListener('keydown', handleEsc);
+  }, [libraryOpen]);
 
   return (
     <div className={`App ${libraryOpen ? 'active-library' : ''}`}>
-      <Nav
-        libraryOpen={libraryOpen}
-        setLibraryOpen={setLibraryOpen}
-      />
-      <Song currentSong={currentSong} />
-      <Player
-        audioRef={audioRef}
-        currentSong={currentSong}
-        setCurrentSong={setCurrentSong}
-        isPlaying={isPlaying}
-        setIsPlaying={setIsPlaying}
-        songInfo={songInfo}
-        setSongInfo={setSongInfo}
-        songs={songs}
-        setSongs={setSongs}
-      />
+      <div className={`${libraryOpen ? 'blur' : ''}`}>
+        <Nav
+          libraryOpen={libraryOpen}
+          setLibraryOpen={setLibraryOpen}
+        />
+        <Song
+          currentSong={currentSong}
+          isPlaying={isPlaying}
+        />
+        <Player
+          audioRef={audioRef}
+          currentSong={currentSong}
+          setCurrentSong={setCurrentSong}
+          isPlaying={isPlaying}
+          setIsPlaying={setIsPlaying}
+          songInfo={songInfo}
+          setSongInfo={setSongInfo}
+          songs={songs}
+          setSongs={setSongs}
+        />
+      </div>
       <Library
         songs={songs}
         audioRef={audioRef}
@@ -77,9 +81,7 @@ function App() {
         setCurrentSong={setCurrentSong}
         setSongs={setSongs}
         libraryOpen={libraryOpen}
-        // onClick={handleOverlay}
-      // setLibraryOpen={setLibraryOpen}
-      // closeOverlay={handleOverlay}
+        setLibraryOpen={setLibraryOpen}
       />
       <audio
         onTimeUpdate={timeChangeHandler}

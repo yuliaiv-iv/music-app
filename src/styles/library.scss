@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 320px;
+  width: 25%;
   height: 100%;
   background-color: #fff;
   box-shadow: 2px 2px 50px rgb(136, 136, 136);
@@ -10,15 +10,30 @@
   transform: translateX(-100%);
   transition: all 0.5s ease;
   opacity: 0;
+}
+.library-container {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
   h2 {
-    padding: 30px;
+    min-height: 10vh;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
   }
+  svg {
+    cursor: pointer;
+  }
+}
+
+.library-button {
+  margin: 10px;
 }
 
 .library-item {
   display: flex;
   align-items: center;
-  padding: 15px 30px 15px 30px;
+  padding: 15px 10px 15px 20px;
   cursor: pointer;
   img {
     width: 30%;
@@ -62,4 +77,16 @@
 .library-active {
   transform: translateX(0%);
   opacity: 1;
+}
+
+@media screen and (max-width: 900px) {
+  .library {
+    width: 35%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .library {
+    width: 320px;
+  }
 }

@@ -7,12 +7,11 @@
 }
 
 .player__control {
-  width: 70%;
+  width: 90%;
   display: flex;
   align-items: center;
   input {
     width: 100%;
-    // padding: 15px 0;
     -webkit-appearance: none;
     background: transparent;
     cursor: pointer;
@@ -55,7 +54,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .player__handler {
-  width: 60%;
+  width: 80%;
   display: flex;
   justify-content: space-between;
   padding: 15px;
@@ -64,12 +63,3 @@ input[type="range"]::-webkit-slider-thumb {
     cursor: pointer;
   }
 }
-
-// @media screen and (max-width: 768px) {
-//   .player__control {
-//     width: 90%;
-//   }
-//   .player__handler {
-//     width: 80%;
-//   }
-// }
